@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const photoId = urlParams.get('id');
+
+    // Flutter uygulamanı açacak özel link
+    const appLink = 'flutterapp://photo/' + photoId;
+    window.location = appLink;
+
+    // 1.5 saniye bekle, uygulama açılmazsa App Store'a yönlendir
+    setTimeout(() => {
+      const ua = navigator.userAgent.toLowerCase();
+      const isIOS = /iphone|ipad|ipod/.test(ua);
+
+      if (isIOS) {
+        // App Store linkin burada
+        window.location = 'https://apps.apple.com/app/id6499439971';
+      } else {
+        window.location = 'https://yourwebsite.com'; // masaüstü kullanıcıları için
+      }
+    }, 1500);
+  </script>
+</head>
+<body>
+  <p>Yönlendiriliyorsunuz...</p>
+</body>
+</html>
