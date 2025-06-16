@@ -7,33 +7,28 @@
     const urlParams = new URLSearchParams(window.location.search);
     const photoId = urlParams.get('id');
 
-    // Flutter uygulamanı açacak özel link
     const appLink = 'fillogo55app://photo/' + photoId;
     window.location = appLink;
 
-    // 1.5 saniye bekle, uygulama açılmazsa App Store'a yönlendir
     setTimeout(() => {
       const ua = navigator.userAgent.toLowerCase();
       const isIOS = /iphone|ipad|ipod/.test(ua);
       //const isAndroid = /android/.test(ua); //açılacak
 
       if (isIOS) {
-        // App Store linkin burada
+  
         window.location = 'https://apps.apple.com/app/id6499439971';
         //alert("Çok yakında App Store'da!");
       } else if (isAndroid) {
         // Android için Play Store paket id (yayınlayınca değiştir)
        // const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.yourcompany.yourapp'; //açılacak
 
-        // Eğer uygulama Play Store'da henüz yoksa kullanıcıya uyarı gösterelim
-        // Burada direkt linke yönlendirme yapabiliriz, ya da uyarı verilebilir.
-        // Örnek olarak, Play Store'a yönlendirme:
+      
         // window.location = playStoreUrl; //açılacak
 
-         //Eğer henüz Play Store'da yoksa uyarı için aşağıdaki kodu kullanabilirsin:
          alert("Çok yakında Play Store'da!");
       } else {
-        window.location = 'https://yourwebsite.com'; // masaüstü kullanıcıları için
+       
       }
     }, 1500);
   </script>
